@@ -1,0 +1,15 @@
+<h2>
+  Sign Up for StockFights!
+</h2>
+
+<div align="center" class="user-login">
+
+  <%= form_for @user do |user| %>
+    <%= user.text_field :first_name, placeholder: "First Name" %><br><br>
+    <%= user.text_field :last_name, placeholder: "Last Name" %><br><br>
+    <%= user.text_field :email, placeholder: "Email" %><br><br>
+    <%= user.password_field :password, placeholder: "password" %><br><br>
+    <%= user.submit "Register"  %>
+
+  <% end  %>
+</div>
