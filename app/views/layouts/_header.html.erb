@@ -2,11 +2,21 @@
       <div class="container">
         <%= link_to 'Lit Stocks and Options', root_path, id: "logo" %>
         <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Help", "#"%></li>
-            <li><%= link_to "Log in", "#" %></li>
-          </ul>
+          <% if logged_in? %>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "Home", root_path %></li>
+              <li><%= link_to "Help", "#"%></li>
+              <li><%= link_to "Log Out", logout_path %></li>
+            </ul>
+          <% else %>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "Home", root_path %></li>
+              <li><%= link_to "Help", "#"%></li>
+              <li><%= link_to "Log in", login_path %></li>
+            </ul>
+
+          <% end %>
         </nav>
       </div>
     </header>
