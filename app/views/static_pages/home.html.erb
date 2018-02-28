@@ -12,11 +12,13 @@
 </div><br>
 
 
-<div class="quotes">
- <p>
+<div class="quote-box">
+ <ul>
       <% @quotes.each do |quote|  %>
-        <%= quote["1. symbol"] %> Last:
-        <%= quote["2. price"] %> |
-      <% end %>
- </p>
+      <li>
+        <p><%= quote["1. symbol"] %></p> Last:
+        <%= quote["2. price"] %>
+      </li>
+    <% end %>
+ </ul>
 </div>
