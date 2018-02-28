@@ -10,3 +10,11 @@
      <%= link_to "Sign up now!", new_user_path, class: "btn btn-lg btn-primary" %>
 
 </div><br>
+
+
+<div class="quotes">
+ <p> <%= @quotes.each do |quote| %>
+      <%= quote %>
+    <% end %>
+ </p>
+</div>
