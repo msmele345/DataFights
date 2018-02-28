@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def home
+    # add_stocks
     @quotes = daily_quote
   end
 
@@ -19,5 +20,8 @@ class StaticPagesController < ApplicationController
 end
 
 
-##Turn Quotes into active record objects
-## iterate over in view
+##Make stocks unique!
+##Logic needed to prevent bad data
+##Make stock add dynamic (From api call)
+## When to run add stocks?
+## Add watchlists

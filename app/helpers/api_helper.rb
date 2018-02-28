@@ -13,6 +13,15 @@ module ApiHelper
     quotes = result["Stock Quotes"]
   end
 
+  def add_stocks
+    daily_quote.each do |quote|
+      Stock.create(:symbol => quote["1. symbol"],
+                   :last => quote["2. price"],
+                   :volume => quote["3. volume"])
+
+    end
+  end
+
 
 
 
