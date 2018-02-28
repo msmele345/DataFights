@@ -1,12 +1,24 @@
 <div class="center jumbotron">
 
-    <h1>Welcome to the "You're Busted - DataFights"</h1>
+    <h1>Pick the Stock, Pick The Currency....but from where? - DataFights"</h1>
 
 
-    <h2>
+    <h3>
       This is an app where you can compare quotes
       to make the best investing decisions. Make lots of money.
-    </h2>
+    </h3>
      <%= link_to "Sign up now!", new_user_path, class: "btn btn-lg btn-primary" %>
 
 </div><br>
+
+
+<div class="quote-box">
+ <ul>
+      <% @quotes.each do |quote|  %>
+      <li>
+        <p><%= quote["1. symbol"] %></p> Last:
+        <%= quote["2. price"] %>
+      </li>
+    <% end %>
+ </ul>
+</div>

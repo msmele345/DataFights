@@ -104,3 +104,26 @@ footer ul li {
   float: left;
   margin-left: 15px;
 }
+
+
+.quote-box ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.quote-box li {
+  background: #BADA55;
+  padding: 25px;
+  width: 300px;
+  margin-top: 70px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.quote-box li p {
+  font-size: 2em;
+}
