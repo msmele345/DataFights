@@ -11,8 +11,10 @@ module ApiHelper
     buffer = resp.body
     result = JSON.parse(buffer)
     quotes = result["Stock Quotes"]
-    # result.each {|quote| p quote }
-
   end
+
+
+
+
 
 end

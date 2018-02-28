@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+
   def home
     @quotes = daily_quote
   end
