@@ -1,0 +1,27 @@
+
+<h2><%= current_user.first_name %>'s Current Lit Stocks</h2>
+
+
+
+<div class="quick-list">
+ <form action="/user_picks" method="POST">
+  <label for="stock">Quick Quotes:</label>
+   <input type="text" name="stock">
+   <input name="authenticity_token" type="hidden"
+      value="x37DrAAwyIIb7s+w2+AdoCR8cAJIpQhIetKRrPgG5VA=">
+   <input type="submit" value="Submit">
+ </form>
+</div>
+
+<div class="user_picks-box">
+ <ul>
+  <% if @user_picks %>
+      <% @user_picks.each do |quote|  %>
+      <li>
+        <p><%= link_to quote["1. symbol"], stock_path(quote["1. symbol"]) %></p> Last:
+        <%= quote["2. price"] %>
+      </li>
+    <% end %>
+  <% end %>
+ </ul>
+</div>

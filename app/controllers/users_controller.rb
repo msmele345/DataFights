@@ -18,7 +18,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(:id => params[:id])
-    # render :show
+    @user_picks = user_list(params["stock"])
+    render :show
   end
 
 

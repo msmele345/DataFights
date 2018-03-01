@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
     get '/help', to: 'static_pages#help'
 
-    post '/user_picks', to: 'static_pages#home'
+    # post '/user_picks', to: 'static_pages#home'
+    post '/user_picks', to: 'users#show'
 
     ##create a new user
     resources :users, only: [:new, :create, :show]

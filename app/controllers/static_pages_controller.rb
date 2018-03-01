@@ -3,8 +3,8 @@ class StaticPagesController < ApplicationController
   def home
     @quotes = daily_quote
 
-    @user_picks = user_list(params["stock"])
-    add_stocks(@user_picks)
+      @user_picks = user_list(params["stock"])
+      # add_stocks(@user_picks)
   end
 
   def help
