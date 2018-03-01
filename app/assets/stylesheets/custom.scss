@@ -106,7 +106,7 @@ footer ul li {
 }
 
 
-.quote-box ul{
+.user_picks-box ul{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -115,7 +115,7 @@ footer ul li {
   list-style: none;
 }
 
-.quote-box li {
+.user_picks-box li {
   background: #BADA55;
   padding: 25px;
   width: 300px;
@@ -124,7 +124,29 @@ footer ul li {
   margin-left: 10px;
 }
 
-.quote-box li p {
+.user_picks-box li p {
+  font-size: 2em;
+}
+
+.master-picks-box ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.master-picks-box li {
+  background: red;
+  padding: 25px;
+  width: 300px;
+  margin-top: 70px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.master-picks-box li p {
   font-size: 2em;
 }
 

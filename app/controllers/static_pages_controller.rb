@@ -1,8 +1,10 @@
 class StaticPagesController < ApplicationController
 
   def home
-    # add_stocks
     @quotes = daily_quote
+
+    @user_picks = user_list(params["stock"])
+    add_stocks(@user_picks)
   end
 
   def help
@@ -15,13 +17,14 @@ class StaticPagesController < ApplicationController
 
   end
 
-  def quotes
-  end
 end
 
 
 ##Make stocks unique!
 ##Logic needed to prevent bad data
-##Make stock add dynamic (From api call)
+##Move personal stock lists to stocks pages
+
+
+
 ## When to run add stocks?
-## Add watchlists
+
