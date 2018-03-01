@@ -11,6 +11,7 @@
   <p>
     <% if logged_in? %>
       <p align='center' id="welcome">Welcome, <%= current_user.first_name %></p>
+      <%= link_to "Current Stock Picks", user_path(current_user), class: "btn btn-lg btn-primary" %>
     <% else %>
       <%= link_to "Sign up now!", new_user_path, class: "btn btn-lg btn-primary" %>
     <% end %>
@@ -19,38 +20,13 @@
 </div><br>
 
 
-<div class="quick-list">
- <form action="/user_picks" method="POST">
-   <label for="stock">Symbols:</label>
-   <input type="text" name="stock">
-   <input name="authenticity_token" type="hidden"
-      value="x37DrAAwyIIb7s+w2+AdoCR8cAJIpQhIetKRrPgG5VA=">
-   <input type="submit" value="Submit">
- </form>
-</div>
-
-
-<h3><%= current_user.first_name %>'s picks:</h3>
-<div class="user_picks-box">
- <ul>
-      <% @user_picks.each do |quote|  %>
-      <li>
-        <p><%= quote["1. symbol"] %></p> Last:
-        <%= quote["2. price"] %>
-      </li>
-    <% end %>
- </ul>
-</div>
-
-
-
 
 <h3>Bossman's picks:</h3>
 <div class="master-picks-box">
  <ul>
       <% @quotes.each do |quote|  %>
       <li>
-        <p><%= quote["1. symbol"] %></p> Last:
+        <p><%= link_to quote["1. symbol"], stock_path(quote["1. symbol"]) %></p> Last:
         <%= quote["2. price"] %>
       </li>
     <% end %>

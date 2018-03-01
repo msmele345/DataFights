@@ -17,7 +17,10 @@ class StocksController < ApplicationController
   end
 
   def show
-
+    @stock = Stock.find_by(:symbol => params[:id])
+    p "*******"
+    p params
+    p @stock
   end
 
   def destroy
