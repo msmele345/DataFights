@@ -19,7 +19,8 @@
       <% @user_picks.each do |quote|  %>
       <li>
         <p><%= link_to quote["1. symbol"], stock_path(quote["1. symbol"]) %></p> Last:
-        <%= quote["2. price"] %>
+          <%= quote["2. price"] %>
+          <%= button_to "Add to Watchlist", "/watchlists", method: "POST", params: "#{quote["1. symbol"]}" %>
       </li>
     <% end %>
   <% end %>
