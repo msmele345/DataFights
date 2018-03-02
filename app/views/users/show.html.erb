@@ -20,9 +20,21 @@
       <li>
         <p><%= link_to quote["1. symbol"], stock_path(quote["1. symbol"]) %></p> Last:
           <%= quote["2. price"] %>
-          <%= button_to "Add to Watchlist", "/watchlists", method: "POST", params: "#{quote["1. symbol"]}" %>
+          <%= button_to "Add to Watchlist", "/watchlists", method: "POST", params: { :symbol => "#{quote["1. symbol"]}" }%>
       </li>
     <% end %>
   <% end %>
+ </ul>
+</div>
+
+
+<h3><%= current_user.first_name %>'s saved stocks:</h3>
+<div class="master-picks-box">
+ <ul>
+      <% @saved_stocks.each do |stock|  %>
+      <li>
+        <%= stock.stock.symbol %>
+      </li>
+    <% end %>
  </ul>
 </div>
