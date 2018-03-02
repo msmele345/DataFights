@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     ##manage stocks in db
     resources :stocks
 
+    ##add new stocks to watchlists
+    resources :watchlists, only: [:new, :create, :destroy]
+
     ##login routes
     get '/login', to: 'sessions#new'
     post '/login', to: 'sessions#create'
