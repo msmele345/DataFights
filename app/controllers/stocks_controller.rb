@@ -17,10 +17,14 @@ class StocksController < ApplicationController
   end
 
   def show
-    @stock = Stock.find_by(:symbol => params[:id])
-    p "*******"
-    p params
-    p @stock
+
+    if Stock.find_by(:symbol => params[:id])
+      @stock = Stock.find_by(:symbol => params[:id])
+      render :show
+    else
+      add_single_stock(params[:id])
+      redirect_to stock_path(params[:id])
+    end
   end
 
   def destroy
