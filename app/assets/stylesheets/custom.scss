@@ -164,3 +164,27 @@ footer ul li {
 
 }
 
+
+
+.historical-quotes-box ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.historical-quotes-box li {
+  background: grey;
+  padding: 25px;
+  width: 300px;
+  margin-top: 70px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.historical-quotes-box li p {
+  color: black;
+  font-size: 1.7em;
+}
