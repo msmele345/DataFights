@@ -1,2 +1,7 @@
 
 <h1 align='center'><%= @stock.symbol %> Profile Page</h1>
+
+
+<div class="stock-details">
+  <p><%= single_stock_quote(@stock.symbol) %></p>
+</div>

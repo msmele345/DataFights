@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180228155929) do
+ActiveRecord::Schema.define(version: 20180303233959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "historical_quotes", force: :cascade do |t|
+    t.string "date"
+    t.string "open"
+    t.string "high"
+    t.string "low"
+    t.string "close"
+    t.string "volume"
+    t.bigint "stock_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stock_id"], name: "index_historical_quotes_on_stock_id"
+  end
 
   create_table "stocks", force: :cascade do |t|
     t.string "symbol"
