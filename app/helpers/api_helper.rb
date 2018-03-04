@@ -22,18 +22,14 @@ module ApiHelper
   end
 
   def single_stock_quote(symbol)
-    stock = Stock.find_by(:symbol => symbol)
-    p stock
-    stock_id = stock.id
     base_url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=#{symbol}&apikey=5LXSJFF4UJMR1YVR"
-
     resp = Net::HTTP.get_response(URI.parse(base_url))
-
     buffer = resp.body
     result = JSON.parse(buffer)
-
     dates = result["Time Series (Daily)"]
+  end
 
+  def enter_historical_data(dates)
     dates.each do |date, info|
       new_date = HistoricalQuote.create!(:date => date)
         info.each do |data|
@@ -50,14 +46,7 @@ module ApiHelper
         end
       end
     end
-
   end
-
-  ##TODO
-  ##Create Historical date controller
-  ##Extract loop into controller or seperate method
-  ##Figure out validations
-  ##Display info on stock show
 
 
 

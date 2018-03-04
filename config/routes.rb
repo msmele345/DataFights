@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     ##add new stocks to watchlists
     resources :watchlists, only: [:new, :create, :destroy]
 
+    ##add new quotes
+    resources :historical_quotes, only: [:new, :create, :destroy, :show]
+
+
     ##login routes
     get '/login', to: 'sessions#new'
     post '/login', to: 'sessions#create'

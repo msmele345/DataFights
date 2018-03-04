@@ -2,6 +2,17 @@
 <h1 align='center'><%= @stock.symbol %> Profile Page</h1>
 
 
-<div class="stock-details">
-  <p><%= single_stock_quote(@stock.symbol) %></p>
+<div class="historical-quotes-box">
+  <ul>
+  <% @db_quotes.each do |quote, data|%>
+    <li>
+      <p><%=  pretty_date(quote.date)  %></p> Close:
+      <%=  quote.close %> Open:
+      <%= quote.open %> High:
+      <%= quote.high %> Low:
+      <%= quote.low %> Volume:
+      <%= quote.volume %>
+    </li>
+    <% end %>
+  </ul>
 </div>
