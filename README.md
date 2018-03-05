@@ -1,24 +1,17 @@
-# README
+#StockFights
+StockFights is a web application that allows you to view, track and make stock picks against the admin user.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Built With
+Ruby on Rails
+PostgreSQL
+Alpha Vantage API
 
-Things you may want to cover:
 
-* Ruby version
+#Authors
 
-* System dependencies
+**Mitch Mele - msmele345**
 
-* Configuration
+License
+This project is licensed under the MIT License - see the LICENSE.md file for details
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+StockFights
