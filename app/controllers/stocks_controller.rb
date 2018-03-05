@@ -12,9 +12,8 @@ class StocksController < ApplicationController
 
 
   ##TODO - do I need all of them in the else route?
-  ##Extract loop into controller or seperate method
-  ##Figure out validations!!!!! START HERE
-  ##clean up modules and extract loop?
+  ##Adjust method to allow user to enter how many days back he/she wants
+  ##Click Events using jquery
   ##Design historical quotes display
   ##before save method for date save?
 

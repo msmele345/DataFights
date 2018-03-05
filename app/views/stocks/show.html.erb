@@ -7,10 +7,10 @@
   <% @stock.historical_quotes.first(3).each do |quote|%>
     <li>
       <p><%=  pretty_date(quote.date)  %></p> Close:
-      <%=  quote.close %> Open:
-      <%= quote.open %> High:
-      <%= quote.high %> Low:
-      <%= quote.low %> Volume:
+      <%= quote.close %><br> Open:
+      <%= quote.open %><br> High:
+      <%= quote.high %><br> Low:
+      <%= quote.low %><br> Volume:
       <%= quote.volume %>
     </li>
     <% end %>
