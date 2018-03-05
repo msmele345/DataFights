@@ -29,9 +29,9 @@ module ApiHelper
     dates = result["Time Series (Daily)"]
   end
 
-  def enter_historical_data(dates)
+  def enter_historical_data(dates, stock_id)
     dates.each do |date, info|
-      new_date = HistoricalQuote.create!(:date => date)
+      new_date = HistoricalQuote.create!(:date => date, :stock_id => stock_id)
         info.each do |data|
           if data[0].slice(3,(data[0].length-1)) == "open"
             new_date.update_attributes(:open => data[1] )
