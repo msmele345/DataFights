@@ -16,6 +16,7 @@ class StocksController < ApplicationController
   ##Figure out validations!!!!! START HERE
   ##clean up modules and extract loop?
   ##Design historical quotes display
+  ##before save method for date save?
 
 
 
@@ -23,15 +24,13 @@ class StocksController < ApplicationController
     if Stock.find_by(:symbol => params[:id])
       @stock = Stock.find_by(:symbol => params[:id])
       @quotes = single_stock_quote(@stock.symbol)
-      enter_historical_data(@quotes)
-      @db_quotes = HistoricalQuote.first(5)
-      @db_quotes.each {|quote| quote.update_attributes(:stock_id => @stock.id)}
+      enter_historical_data(@quotes, @stock.id)
       render :show
     else
       add_single_stock(params[:id])
       @stock = Stock.find_by(:symbol => params[:id])
       @quotes = single_stock_quote(@stock.symbol)
-      @db_quotes = HistoricalQuote.first(5)
+      enter_historical_data(@quotes, @stock.id)
       redirect_to stock_path(params[:id])
     end
   end
