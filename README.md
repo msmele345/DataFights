@@ -1,13 +1,13 @@
-#StockFights
+##StockFights
 StockFights is a web application that allows you to view, track and make stock picks against the admin user.
 
 ## Built With
-Ruby on Rails
-PostgreSQL
-Alpha Vantage API
+*Ruby on Rails*
+*PostgreSQL*
+*Alpha Vantage API*
 
 
-#Authors
+##Authors
 
 **Mitch Mele - msmele345**
 
