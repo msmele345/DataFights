@@ -19,6 +19,8 @@ class StocksController < ApplicationController
 
 
 
+
+
   def show
     if Stock.find_by(:symbol => params[:id])
       @stock = Stock.find_by(:symbol => params[:id])

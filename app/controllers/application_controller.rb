@@ -4,5 +4,6 @@ class ApplicationController < ActionController::Base
   include SessionHelper
   include ApiHelper
   include DateTimeHelper
+  include UsersHelper
 
 end
