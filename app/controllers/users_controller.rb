@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
+      flash[:success] = "Welcome to the StockFights!"
       redirect_to root_path
     else
       @errors = @user.errors.full_messages
