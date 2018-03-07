@@ -18,9 +18,12 @@ class UsersController < ApplicationController
   end
 
   def show
+    p"******"
+    p params
+    ##TODO - add watchlist here?
     @user = User.find_by(:id => params[:id])
+    add_single_stock(params["stock"])
     @user_picks = user_list(params["stock"])
-    @saved_stocks = Watchlist.all
     render :show
   end
 

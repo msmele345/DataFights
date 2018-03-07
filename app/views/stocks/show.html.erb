@@ -4,7 +4,7 @@
 
 <div class="historical-quotes-box">
   <ul>
-  <% @stock.historical_quotes.first(3).each do |quote|%>
+  <% @stock.historical_quotes.first(5).each do |quote|%>
     <li>
       <p><%=  pretty_date(quote.date)  %></p> Close:
       <%= quote.close %><br> Open:
