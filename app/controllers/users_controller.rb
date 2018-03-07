@@ -17,10 +17,15 @@ class UsersController < ApplicationController
     end
   end
 
+
+##find by or create
+##update attributes
+##iterate through user picks and update information with update attributes
   def show
     @user = User.find_by(:id => params[:id])
     add_single_stock(params["stock"])
     @user_picks = user_list(params["stock"])
+    p @user_picks[0]["2. price"]
     render :show
   end
 
