@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
     get '/help', to: 'static_pages#help'
 
+    delete '/delete', to:'watchlists#destroy'
+
     # post '/user_picks', to: 'static_pages#home'
     post '/user_picks', to: 'users#show'
 

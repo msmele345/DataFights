@@ -1,29 +1,33 @@
 
-
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= current_user.first_name %>'s Current Lit Stocks
-      </h1>
-    </section>
-  </aside>
-</div>
-
-
-
+<% if @user %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <h1>
+          <%= gravatar_for @user %>
+          <%= current_user.first_name %>'s Current Lit  Stocks
+        </h1>
+      </section>
+    </aside>
+  </div>
+<% end %>
 
 
-<div class="quick-list">
- <form action="/user_picks" method="POST">
+
+
+
+<div class="col-md-2 col-md-offset-0">
+ <form id="quick-quote" action="/user_picks" method="POST">
   <label for="stock">Quick Quotes:</label>
    <input type="text" name="stock">
    <input name="authenticity_token" type="hidden"
       value="x37DrAAwyIIb7s+w2+AdoCR8cAJIpQhIetKRrPgG5VA=">
-   <input type="submit" value="Submit">
+   <input type="submit" value="Get Quote", class=" button btn btn-primary"><br>
+  <strong>Current picks:</strong>
  </form>
 </div>
+
+
 
 <div class="user_picks-box">
  <ul>
@@ -31,8 +35,9 @@
       <% @user_picks.each do |quote|  %>
       <li>
         <p><%= link_to quote["1. symbol"], stock_path(quote["1. symbol"]) %></p> Last:
-          <%= quote["2. price"] %>
-          <%= button_to "Add to Watchlist", "/watchlists", method: "POST", params: { :symbol => "#{quote["1. symbol"]}" }%>
+          <%= quote["2. price"] %><br>
+          <%= button_to "Add to Watchlist", "/watchlists", method: "POST", params: { :symbol => "#{quote["1. symbol"]}" }, class: "btn-primary btn-xs"%>
+          <%= button_to "Back to Watchlist", user_path(current_user), class: "btn-primary btn-xs"  %>
       </li>
     <% end %>
   <% end %>
@@ -40,13 +45,16 @@
 </div>
 
 
-<h3><%= current_user.first_name %>'s saved stocks:</h3>
-<div class="master-picks-box">
- <ul>
-      <% @saved_stocks.each do |stock|  %>
+<% if @user %>
+  <div class="master-picks-box">
+    <strong>Manage Watchlist:</strong>
+    <ul>
+      <% @user.watchlists.each do |watchlist| %>
       <li>
-        <%= stock.stock.symbol %>
+        <%= watchlist.stock.symbol %>
+        <%= link_to "Delete", watchlist_path(watchlist.id), method: :delete, class: "btn-primary btn-xs" %>
       </li>
-    <% end %>
- </ul>
-</div>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

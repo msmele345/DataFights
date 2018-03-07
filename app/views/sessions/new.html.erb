@@ -4,18 +4,16 @@
   <%= render 'shared/errors', locals: {errors: @errors} if @errors %>
 </div>
 
-<div align="center" class="login-form">
-  <%= form_tag '/login' do |t| %>
-  <p>
-    Email: <br>
-      <%= text_field_tag :email %><br>
-  </p>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <%= form_tag '/login' do |f| %>
 
-  <p>
-    Password: <br>
-      <%= password_field_tag :password %><br>
-  </p>
+      Email:
+      <%= email_field_tag  :email %>
+      Password:
+      <%= password_field_tag :password %>
 
-    <%= submit_tag "Submit" %><br>
-  <% end %>
+      <%= submit_tag "Sign In", class: " button btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
