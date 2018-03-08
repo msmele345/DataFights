@@ -25,8 +25,15 @@ class UsersController < ApplicationController
     @user = User.find_by(:id => params[:id])
     add_single_stock(params["stock"])
     @user_picks = user_list(params["stock"])
-    p @user_picks[0]["2. price"]
+    if @user_picks
+      @user_picks.each do |stock|
+        stock_to_update = Stock.find_by(:symbol => params["stock"])
+        stock_to_update.update_attributes(:last => stock["2. price"],
+                                        :volume => stock["3. volume"])
+    end
+  else
     render :show
+   end
   end
 
 
