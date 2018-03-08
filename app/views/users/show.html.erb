@@ -5,7 +5,7 @@
       <section class="user_info">
         <h1>
           <%= gravatar_for @user %>
-          <%= current_user.first_name %>'s Current Lit  Stocks
+          <%= current_user.first_name %>'s Current Watchlist
         </h1>
       </section>
     </aside>
@@ -23,7 +23,7 @@
    <input name="authenticity_token" type="hidden"
       value="x37DrAAwyIIb7s+w2+AdoCR8cAJIpQhIetKRrPgG5VA=">
    <input type="submit" value="Get Quote", class=" button btn btn-primary"><br>
-  <strong>Current picks:</strong>
+  <strong>Current Watching:</strong>
  </form>
 </div>
 
@@ -47,11 +47,12 @@
 
 <% if @user %>
   <div class="master-picks-box">
-    <strong>Manage Watchlist:</strong>
     <ul>
       <% @user.watchlists.each do |watchlist| %>
       <li>
-        <%= watchlist.stock.symbol %>
+        <%= watchlist.stock.symbol %><br>
+        <strong>Last:</strong> <%= watchlist.stock.last %><br>
+        <strong>Volume:</strong> <%= watchlist.stock.volume %><br>
         <%= link_to "Delete", watchlist_path(watchlist.id), method: :delete, class: "btn-primary btn-xs" %>
       </li>
       <% end %>
