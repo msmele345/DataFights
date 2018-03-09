@@ -19,11 +19,5 @@ class StaticPagesController < ApplicationController
 
 end
 
-##GAME
-##player_name
-##user_selections
-##admin_selections
-##outcome
-##is_over? boolean
 
 

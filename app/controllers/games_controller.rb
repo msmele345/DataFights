@@ -7,11 +7,14 @@ class GamesController < ApplicationController
   end
 
   def create
-    @admin_selections = daily_quote
-    p "**********"
-    p params
-    # @user_selections = user_list(params["stock"])
-    # @game = Game.create(:user_id => current_user.id, :user_selections => @user_selections, :admin_selections => @admin_selections)
+    @admin_selections = daily_quote.map {|stock| stock["1. symbol"] }.join(",")
+    @result = []
+     params["stock"].each do |watchlist_id|
+        @result << Watchlist.find_by(:id => watchlist_id)
+      end
+     @user_selections =  @result.map {|watchlist| watchlist.stock.symbol }.join(",")
+
+    @game = Game.create(:user_id => current_user.id, :user_selections => @user_selections, :admin_selections => @admin_selections)
     render :show
   end
 
@@ -21,7 +24,7 @@ class GamesController < ApplicationController
 end
 
 ##TODO
+##Call daily quote (refactor to take symbols). Display user picks and admin picks side by side.
 ##fix the damn button to start the game
-##iterate over watchlsit ids and find the stock symbols.
-##Add each symbol into a string
-##pass returned string into user_picks helper. Pass these results into new Game object
+
+
