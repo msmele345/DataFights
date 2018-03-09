@@ -23,7 +23,7 @@
    <input name="authenticity_token" type="hidden"
       value="x37DrAAwyIIb7s+w2+AdoCR8cAJIpQhIetKRrPgG5VA=">
    <input type="submit" value="Get Quote", class=" button btn btn-primary"><br>
-  <strong>Current Watching:</strong>
+  <strong>Currently Watching:</strong>
  </form>
 </div>
 
@@ -36,13 +36,15 @@
       <li>
         <p><%= link_to quote["1. symbol"], stock_path(quote["1. symbol"]) %></p> Last:
           <%= quote["2. price"] %><br>
-          <%= button_to "Add to Watchlist", "/watchlists", method: "POST", params: { :symbol => "#{quote["1. symbol"]}" }, class: "btn-primary btn-xs"%>
+          <%= button_to "Add to Watchlist", "/watchlists", method: "POST", params: { :symbol => "#{quote["1. symbol"]}", :last => quote["2. price"]  }, class: "btn-primary btn-xs"%>
           <%= button_to "Back to Watchlist", user_path(current_user), class: "btn-primary btn-xs"  %>
       </li>
     <% end %>
   <% end %>
  </ul>
 </div>
+
+
 
 
 <% if @user %>
@@ -59,3 +61,9 @@
     </ul>
   </div>
 <% end %>
+
+    <% if @user %>
+       <p><%= button_to 'Start Game?', '/games' , method: "POST", class: "btn btn-lg btn-link", params: {:stock => @user.watchlists.first(3)} %></p>
+    <% end %>
+
+

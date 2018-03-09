@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
   has_many :watchlists
+  has_many :games
   has_many :stocks, through: :watchlists
 
 

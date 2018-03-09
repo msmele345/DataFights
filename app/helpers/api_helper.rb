@@ -4,7 +4,7 @@ require 'net/http'
 module ApiHelper
 
   def daily_quote
-    base_url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols=UNH,JPM,QCOM&apikey=5LXSJFF4UJMR1YVR"
+    base_url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols=UNH,JPM,HD&apikey=5LXSJFF4UJMR1YVR"
 
     resp = Net::HTTP.get_response(URI.parse(base_url))
 

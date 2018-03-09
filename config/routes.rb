@@ -22,6 +22,12 @@ Rails.application.routes.draw do
     ##add new quotes
     resources :historical_quotes, only: [:new, :create, :destroy, :show]
 
+    ##create new games
+    resources :games
+
+    ##new game
+
+
 
     ##login routes
     get '/login', to: 'sessions#new'
