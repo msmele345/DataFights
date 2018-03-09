@@ -5,6 +5,8 @@ class StaticPagesController < ApplicationController
     @user_picks = user_list(params["stock"])
   end
 
+
+
   def help
   end
 
@@ -18,11 +20,4 @@ class StaticPagesController < ApplicationController
 end
 
 
-##Make stocks unique!
-##Logic needed to prevent bad data
-##Move personal stock lists to stocks pages
-
-
-
-## When to run add stocks?
 

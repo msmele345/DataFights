@@ -1,22 +1,18 @@
 <div class="center jumbotron">
-
-    <h1 id="home-header">StockFights</h1>
-
-
-    <h3>
+   <h1 id="home-header">StockFights</h1>
+   <h3>
       Track Historical and Current Stock Data. Create Watchlists. Make your daily picks and compete with the developer for bragging rights!
-    </h3>
-
-  <p>
-    <% if logged_in? %>
-      <p align='center' id="welcome">Welcome, <%= current_user.first_name %></p>
-      <%= link_to "Current Watchlist", user_path(current_user), class: "btn btn-lg btn-primary" %>
-    <% else %>
-      <%= link_to "Sign up now!", new_user_path, class: "btn btn-lg btn-primary" %>
-    <% end %>
-  </p>
-
-</div><br>
+   </h3>
+   <p>
+      <% if logged_in? %>
+   <p align='center' id="welcome">Welcome, <%= current_user.first_name %></p>
+   <%= link_to "Current Watchlist", user_path(current_user), class: "btn btn-lg btn-primary" %>
+   <% else %>
+   <%= link_to "Sign up now!", new_user_path, class: "btn btn-lg btn-primary" %>
+   <% end %>
+   </p>
+</div>
+<br>
 
 
 
