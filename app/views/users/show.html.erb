@@ -52,7 +52,7 @@
     <ul>
       <% @user.watchlists.each do |watchlist| %>
       <li>
-        <%= watchlist.stock.symbol %><br>
+        <%= link_to watchlist.stock.symbol, stock_path(watchlist.stock.symbol) %><br>
         <strong>Last:</strong> <%= watchlist.stock.last %><br>
         <strong>Volume:</strong> <%= watchlist.stock.volume %><br>
         <%= link_to "Delete", watchlist_path(watchlist.id), method: :delete, class: "btn-primary btn-xs" %>

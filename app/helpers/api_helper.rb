@@ -49,8 +49,6 @@ module ApiHelper
   end
 
 
-
-
   def add_single_stock(string_symbol)
       Stock.create(:symbol => string_symbol)
   end
@@ -65,11 +63,11 @@ module ApiHelper
     quotes = result["Stock Quotes"]
   end
 
-  def update_price(symbol)
+##switch from close to last when intraday games start
+  def fresh_quote(symbol)
     latest_price = single_stock_quote(symbol).first[1]["4. close"]
-    # @stock = Stock.find_by(:symbol => symbol)
-    # latest_price.update_attribute(:close => latest_price)
-
+    latest_volume = single_stock_quote(symbol).first[1]["5. volume"]
+    data = {:last => latest_price, :volume => latest_volume}
   end
 
 

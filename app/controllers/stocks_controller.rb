@@ -12,9 +12,6 @@ class StocksController < ApplicationController
 
 
   ##TODO
-  ##create method to run through all stocks and provide a last price
-  ##Static home picks for admin logic
-  ##Setup button to submit current watchlist as picks to be matched with admin picks for a gain
   ##Compare previous close with current close and convert to % to show gain
   ##Design historical quotes display
 
