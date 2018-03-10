@@ -15,6 +15,13 @@ class GamesController < ApplicationController
      @user_selections =  @result.map {|watchlist| watchlist.stock.symbol }.join(",")
 
     @game = Game.create(:user_id => current_user.id, :user_selections => @user_selections, :admin_selections => @admin_selections)
+
+    @user_quotes = user_list(@user_selections)
+    @admin_quotes = user_list(@admin_selections)
+
+    # @maybe = single_stock_quote("AAPL")
+    @maybe = update_price("AAPL")
+
     render :show
   end
 

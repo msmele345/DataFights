@@ -1,1 +1,33 @@
-<h1>New GAME stub</h1>
+<h1>Oh snap, its a STOCKFIGHT!</h1>
+
+<h3><%= current_user.first_name %>'s Stocks:</h3>
+<div class="master-picks-box">
+ <ul>
+      <% @user_quotes.each do |quote|  %>
+      <li>
+        <p><%= link_to quote["1. symbol"], stock_path(quote["1. symbol"]) %></p> Last:
+        <%= quote["2. price"] %>
+      </li>
+    <% end %>
+ </ul>
+</div>
+
+
+<h3> StockFather's Stocks:</h3>
+
+<div class="master-picks-box">
+ <ul>
+      <% @admin_quotes.each do |quote|  %>
+      <li>
+        <p><%= link_to quote["1. symbol"], stock_path(quote["1. symbol"]) %></p> Last:
+        <%= quote["2. price"] %>
+      </li>
+    <% end %>
+ </ul>
+</div>
+
+<div>
+  <p>
+    <%= @maybe %>
+  </p>
+</div>

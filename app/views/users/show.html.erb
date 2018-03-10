@@ -37,7 +37,7 @@
         <p><%= link_to quote["1. symbol"], stock_path(quote["1. symbol"]) %></p> Last:
           <%= quote["2. price"] %><br>
           <%= button_to "Add to Watchlist", "/watchlists", method: "POST", params: { :symbol => "#{quote["1. symbol"]}", :last => quote["2. price"]  }, class: "btn-primary btn-xs"%>
-          <%= button_to "Back to Watchlist", user_path(current_user), class: "btn-primary btn-xs"  %>
+          <%= link_to "Back to Watchlist", user_path(current_user), align: "middle", class: "btn-primary btn-xs back-watchlist"  %>
       </li>
     <% end %>
   <% end %>

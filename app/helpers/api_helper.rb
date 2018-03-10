@@ -4,7 +4,7 @@ require 'net/http'
 module ApiHelper
 
   def daily_quote
-    base_url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols=UNH,JPM,HD&apikey=5LXSJFF4UJMR1YVR"
+    base_url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols=AA,QCOM,BUD&apikey=5LXSJFF4UJMR1YVR"
 
     resp = Net::HTTP.get_response(URI.parse(base_url))
 
@@ -63,6 +63,13 @@ module ApiHelper
     buffer = resp.body
     result = JSON.parse(buffer)
     quotes = result["Stock Quotes"]
+  end
+
+  def update_price(symbol)
+    latest_price = single_stock_quote(symbol).first[1]["4. close"]
+    # @stock = Stock.find_by(:symbol => symbol)
+    # latest_price.update_attribute(:close => latest_price)
+
   end
 
 
