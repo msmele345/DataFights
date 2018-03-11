@@ -30,7 +30,7 @@ end
 
 ##TODO
 ##Clear game
-##Determine Winner. Update boolean column
+##Determine Winner. Update boolean column (##create helper for determining net change in historical quotes area)
 ##Show game stats in user show
 ##find out other areas to use the fresh quote helper method
 
