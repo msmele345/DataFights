@@ -8,11 +8,13 @@ class WatchlistsController < ApplicationController
     @stock = Stock.new(:symbol => params["symbol"])
     if @stock.save
       @watchlist = Watchlist.create(:user_id => current_user.id, :stock_id => @stock.id)
-      @stock.update_attributes(:last => params["last"])
+      fresh_data = fresh_quote(@stock.symbol)
+      @stock.update_attributes(:last => fresh_data[:last], :volume => fresh_data[:volume])
     else
       @existing_stock = Stock.find_by(:symbol => params['symbol'])
       @watchlist = Watchlist.create(:user_id => current_user.id, :stock_id => @existing_stock.id)
-      @existing_stock.update_attributes(:last => params["last"])
+      fresh_data = fresh_quote(@existing_stock.symbol)
+      @existing_stock.update_attributes(:last => fresh_data[:last], :volume => fresh_data[:volume])
 
     end
     redirect_to user_path(current_user)

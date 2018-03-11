@@ -220,7 +220,7 @@ footer ul li {
 }
 
 .historical-quotes-box li {
-  background: grey;
+  background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);;
   padding: 25px;
   width: 300px;
   margin-top: 70px;
@@ -270,10 +270,6 @@ aside {
   margin-top: 15px;
 }
 
-#quick-quote {
-
-}
-
 
 
 .button:hover {
@@ -284,3 +280,9 @@ aside {
 .start-game {
   max-width: 80px;
 }
+
+.back-watchlist {
+  display: flex;
+  justify-content: center;
+}
+

@@ -13,7 +13,7 @@ module DateTimeHelper
   def pretty_date(date)
     real_time = Date.parse(date).to_date
     if real_time.day < 10
-      real_time.strftime("%B #{real_time.day}st")
+      real_time.strftime("%B #{real_time.day}")
     else
     real_time.strftime("%B %dth")
    end
