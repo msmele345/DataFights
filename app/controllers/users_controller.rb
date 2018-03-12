@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
 
-
-
-
   def new
     @user = User.new
   end
@@ -32,18 +29,16 @@ class UsersController < ApplicationController
       @user_picks.each do |stock|
         stock_to_update = Stock.find_by(:symbol => params["stock"])
         stock_to_update.update_attributes(:last => stock["2. price"],
-                                        :volume => stock["3. volume"])
+                                          :volume => stock["3. volume"])
     end
   else
     render :show
    end
   end
 
-
   private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password)
   end
-
 
 end
