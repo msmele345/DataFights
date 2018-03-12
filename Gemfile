@@ -20,6 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'dotenv'
 gem 'bcrypt'
 gem 'kaminari'
+gem 'jquery-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
