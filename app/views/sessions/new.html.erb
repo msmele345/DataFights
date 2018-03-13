@@ -13,6 +13,9 @@
       Password:
       <%= password_field_tag :password %>
 
+      <%= check_box_tag :remember_me %> 
+      <p id="remember">Remember Me? </p>      
+
       <%= submit_tag "Sign In", class: " button btn btn-primary" %>
     <% end %>
   </div>
