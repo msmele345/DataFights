@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     post '/user_picks', to: 'users#show'
 
     ##create a new user
-    resources :users, only: [:new, :create, :show]
+    resources :users
 
     ##manage stocks in db
     resources :stocks

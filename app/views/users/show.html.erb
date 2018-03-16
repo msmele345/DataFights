@@ -1,6 +1,6 @@
 
 <% if @user %>
-  <div class="row">
+  <div align="right" class="row">
     <aside class="col-md-4">
       <section class="user_info">
         <h1>
@@ -15,19 +15,19 @@
 
 
   
-
-
-
+<h1 id="watchlist-header">Currently Watching:</h1>
 <div class="col-md-2 col-md-offset-0">
- <form id="quick-quote" action="/user_picks" method="POST">
-  <label for="stock">Quick Quotes:</label>
-   <input type="text" name="stock">
-   <input name="authenticity_token" type="hidden"
-      value="x37DrAAwyIIb7s+w2+AdoCR8cAJIpQhIetKRrPgG5VA=">
-   <input type="submit" value="Get Quote", class=" button btn btn-primary"><br>
-  <strong>Currently Watching:</strong>
- </form>
+   <form id="quick-quote" action="/user_picks" method="POST">
+      <label for="stock">Quick Quotes:</label>
+      <input type="text" name="stock">
+      <input name="authenticity_token" type="hidden"
+         value="x37DrAAwyIIb7s+w2+AdoCR8cAJIpQhIetKRrPgG5VA=">
+      <input type="submit" value="Get Quote", class=" button btn btn-primary"><br><br>
+      <strong>Add exactly three stocks to your watchlist to play the game ~~~~></strong>
+   </form>
+   <footer>There is no limit on how many stocks can be in a watchlist at one time. However, exactly three are required     to start a new game</footer>
 </div>
+
 
 
 
@@ -46,7 +46,7 @@
  </ul>
 </div>
 
-
+create way to add all quick quotes to watchlists
 
 
 <% if @user %>
@@ -64,8 +64,10 @@
   </div>
 <% end %>
 
-    <% if @user %>
-       <p><%= button_to 'Start Game?', '/games' , method: "POST", class: "btn btn-lg btn-link", params: {:stock => @user.watchlists.first(3)} %></p>
+     <% if @user && @user.watchlists.count == 3 %>
+       <p><%= button_to 'Start Game!', '/games' , method: "POST", class: "btn btn-lg btn-link", params: {:stock => @user.watchlists.first(3)} %></p>
     <% end %>
+
+
 
 

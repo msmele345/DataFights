@@ -1,8 +1,17 @@
-<div class="quick-list">
- <form action="/watchlists" method="POST">
-  <label for="stock">Add to watchlist</label>
-   <input name="authenticity_token" type="hidden"
-      value="x37DrAAwyIIb7s+w2+AdoCR8cAJIpQhIetKRrPgG5VA=">
-   <input type="submit"  value="Add">
- </form>
-</div>
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/errors', object: @user %>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name, class: 'form-control' %>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name, class: 'form-control' %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, class: 'form-control' %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'form-control' %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
