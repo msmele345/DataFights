@@ -4,7 +4,23 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@user) do |f| %>
-        <%= render 'shared/form' %>
+        <%= render 'shared/errors', object: @user %>
+
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, class: 'form-control' %>
+
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, class: 'form-control' %>
+
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <%= f.submit "Submit Changes", class: "btn btn-primary" %>
+
+    <% end %>
     <div class="gravatar_edit">
       <%= gravatar_for @user %>
       <a href="http://gravatar.com/emails" target="_blank" rel="noopener">change</a>

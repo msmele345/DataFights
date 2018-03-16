@@ -32,7 +32,7 @@ class UsersController < ApplicationController
                                           :volume => stock["3. volume"])
     end
   else
-    render :show
+      render :show
    end
   end
 
@@ -43,10 +43,12 @@ class UsersController < ApplicationController
   def update 
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      redirect_to edit_user_path(current_user)      
+      flash[:success] == "Profile Updated"
+      redirect_to @user     
     else 
       @errors = @user.errors.full_messages
       render :edit
+    end 
   end 
 
   private
