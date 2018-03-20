@@ -1,4 +1,7 @@
 ##StockFights
+
+##This application is still in development. 
+
 StockFights is a web application that allows you to view, track and make stock picks against the admin user.
 
 ## Built With
